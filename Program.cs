@@ -26,22 +26,28 @@ namespace actividad_10__08
                 switch (opcion)
                 {
                     case 1:
-                       Console.WriteLine($"Ingrese Id de empleado");
-                        int.TryParse(Console.ReadLine(), out ID);
-                        if (empleado.ContainsKey(ID))
+                        Console.WriteLine("ingrese cantidad de empleados que desae ingresar: ");
+                        int.TryParse(Console.ReadLine(), out int lim);
+                        for (int i = 0; i < lim; i++)
                         {
-                            Console.WriteLine("nombre ya ingresado ingrese otro");
 
 
+                            Console.WriteLine($"Ingrese Id de empleado");
+                            int.TryParse(Console.ReadLine(), out ID);
+                            if (empleado.ContainsKey(ID))
+                            {
+                                Console.WriteLine("nombre ya ingresado ingrese otro");
+
+
+                            }
+                            else
+                            {
+                                Console.WriteLine("ingrese nombre:");
+                                nombre = Console.ReadLine();
+                                empleado.Add(ID, nombre);
+
+                            }
                         }
-                        else
-                        {
-                            Console.WriteLine("ingrese nombre:");
-                           nombre= Console.ReadLine();
-                            empleado.Add(ID, nombre);
-
-                        }
-
                         break;
                     case 2:
                         Console.WriteLine("ingrese el ID que desea modificar");
