@@ -29,8 +29,8 @@ namespace actividad_10__08
 
 
                         Console.WriteLine($"Ingrese Id de empleado");
-                        nombre = Console.ReadLine();
-                        if (empleado.ContainsKey(nombre))
+                        int.TryParse(Console.ReadLine(), out ID);
+                        if (empleado.ContainsKey(ID))
                         {
                             Console.WriteLine("nombre ya ingresado ingrese otro");
 
@@ -38,17 +38,22 @@ namespace actividad_10__08
                         }
                         else
                         {
-                            Console.WriteLine("ingrese notas:");
-                            double.TryParse(Console.ReadLine(), out notas);
-                            estudiantes.Add(nombre, notas);
+                            Console.WriteLine("ingrese nombre:");
+                           nombre= Console.ReadLine();
+                            empleado.Add(ID, nombre);
 
                         }
 
                         break;
                     case 2:
-                        Console.WriteLine("ingrese el nombre que desea ver notas");
-                        nombre = Console.ReadLine();
-                        Console.WriteLine("la nota de " + nombre + " es:" + estudiantes[nombre]);
+                        Console.WriteLine("ingrese el ID que desea modificar");
+                        int.TryParse (Console.ReadLine(), out ID);
+                        if(empleado.ContainsKey(ID))
+                        {
+                            Console.WriteLine("ingrese nuevo nombre: ");
+                            nombre= Console.ReadLine();
+                            empleado[ID] = nombre;
+                        }
 
 
                         break;
