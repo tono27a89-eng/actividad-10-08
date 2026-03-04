@@ -37,8 +37,7 @@ namespace actividad_10__08
                             if (empleado.ContainsKey(ID))
                             {
                                 Console.WriteLine("nombre ya ingresado ingrese otro");
-
-
+                                i--;
                             }
                             else
                             {
