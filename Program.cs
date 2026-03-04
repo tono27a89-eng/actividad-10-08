@@ -15,20 +15,18 @@ namespace actividad_10__08
             int ID;
             string nombre;
             int opcion;
+            bool validar=false;
             do
             {
                 Console.WriteLine("1. ingresar empleado");
                 Console.WriteLine("2. modificar");
+                Console.WriteLine("3. ver empleados");
                 Console.WriteLine("0. salir");
                 int.TryParse(Console.ReadLine(), out opcion);
                 switch (opcion)
                 {
                     case 1:
-
-
-
-
-                        Console.WriteLine($"Ingrese Id de empleado");
+                       Console.WriteLine($"Ingrese Id de empleado");
                         int.TryParse(Console.ReadLine(), out ID);
                         if (empleado.ContainsKey(ID))
                         {
@@ -54,8 +52,20 @@ namespace actividad_10__08
                             nombre= Console.ReadLine();
                             empleado[ID] = nombre;
                         }
-
-
+                        else
+                        {
+                            Console.WriteLine("ID no encontrado");
+                        }
+                       
+                        break;
+                        case 3:
+                        foreach (var item in empleado)
+                        {
+                            Console.WriteLine(" el ID: "+item.Key+ " empleado: "+item.Value);
+                        }
+                        break;
+                    case 0:
+                        validar= true;
                         break;
                     default:
                         Console.WriteLine("ingrese valor valido");
@@ -63,7 +73,7 @@ namespace actividad_10__08
                 }
 
             }
-            while (opcion != 0);
+            while (validar!= true);
             Console.WriteLine("hasta luego");
 
 
